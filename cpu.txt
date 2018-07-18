@@ -1,0 +1,42 @@
+Auto-WEKA result:
+best classifier: weka.classifiers.meta.AdditiveRegression
+arguments: [-S, 1, -I, 13, -W, weka.classifiers.lazy.IBk, --, -E, -K, 53, -X, -I]
+attribute search: weka.attributeSelection.BestFirst
+attribute search arguments: [-D, 1, -N, 4]
+attribute evaluation: weka.attributeSelection.CfsSubsetEval
+attribute evaluation arguments: []
+metric: rootMeanSquaredError
+estimated rootMeanSquaredError: 1.0215044407955163
+training time on evaluation dataset: 1.92 seconds
+
+You can use the chosen classifier in your own code as follows:
+
+AttributeSelection as = new AttributeSelection();
+ASSearch asSearch = ASSearch.forName("weka.attributeSelection.BestFirst", new String[]{"-D", "1", "-N", "4"});
+as.setSearch(asSearch);
+ASEvaluation asEval = ASEvaluation.forName("weka.attributeSelection.CfsSubsetEval", new String[]{});
+as.setEvaluator(asEval);
+as.SelectAttributes(instances);
+instances = as.reduceDimensionality(instances);
+Classifier classifier = AbstractClassifier.forName("weka.classifiers.meta.AdditiveRegression", new String[]{"-S", "1", "-I", "13", "-W", "weka.classifiers.lazy.IBk", "--", "-E", "-K", "53", "-X", "-I"});
+classifier.buildClassifier(instances);
+
+
+Correlation coefficient                  1     
+Mean absolute error                      0.7115
+Root mean squared error                  1.0215
+Relative absolute error                  0.0098 %
+Root relative squared error              0.0123 %
+Total Number of Instances             1045     
+
+
+Temporary run directories:
+/tmp/autoweka3102216352220688291/
+/tmp/autoweka461950913661128371/
+/tmp/autoweka5720369510374317674/
+/tmp/autoweka3683215144272947778/
+
+
+For better performance, try giving Auto-WEKA more time.
+Tried 763 configurations; to get good results reliably you may need to allow for trying thousands of configurations.
+

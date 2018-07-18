@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
+<platform version="4.1">
+	<zone id="AIRL" routing="Cluster">
+		<link id="cable" bandwidth="125MBps" latency="0"/>
+		<host id="slave0" speed="500Mf"><prop id="watt_per_state" value="60:80"/><prop id="watt_off" value="0"/></host>
+		<host_link id="slave0" up="cable" down="cable"/>
+		<host id="slave157" speed="753.5Mf"><prop id="watt_per_state" value="165.26:330.52"/><prop id="watt_off" value="0"/></host>
+		<host_link id="slave157" up="cable" down="cable"/>
+		<host id="slave4" speed="312.5Mf"><prop id="watt_per_state" value="70.08:140.16"/><prop id="watt_off" value="0"/></host>
+		<host_link id="slave4" up="cable" down="cable"/>
+		<host id="slave67" speed="312.5Mf"><prop id="watt_per_state" value="70.08:140.16"/><prop id="watt_off" value="0"/></host>
+		<host_link id="slave67" up="cable" down="cable"/>
+	</zone>
+</platform>
