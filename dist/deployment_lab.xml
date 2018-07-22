@@ -1,9 +1,0 @@
-<?xml version='1.0'?>
-<!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
-<platform version="4.1">
-	<actor host="slave0" function="master">
-		<argument value="1"/>
-		<argument value="128e6"/>
-		<argument value="125e6"/>
-	</actor>
-</platform>
