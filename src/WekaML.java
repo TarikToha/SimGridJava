@@ -207,11 +207,12 @@ public class WekaML {
 
         for (ArrayList<Double> test : testSet) {
             double energy = test.get(4) + test.get(8);
-            double cpu = test.get(4);
+            //double cpu = test.get(4);
             //double ac = test.get(8);
+            double epTP = energy / (test.get(0) / test.get(2));
 
-            if (!total && cpu < minEnergy) {
-                minEnergy = cpu;
+            if (!total && epTP < minEnergy) {
+                minEnergy = epTP;
                 optimumConfig = test;
             } else if (total && energy < minEnergy) {
                 minEnergy = energy;
