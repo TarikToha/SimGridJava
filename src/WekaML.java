@@ -208,6 +208,7 @@ public class WekaML {
         for (ArrayList<Double> test : testSet) {
             double energy = test.get(4) + test.get(8);
             double cpu = test.get(4);
+            //double ac = test.get(8);
 
             if (!total && cpu < minEnergy) {
                 minEnergy = cpu;

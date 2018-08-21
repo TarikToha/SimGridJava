@@ -62,7 +62,7 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_test":
-                WekaML gmc = new WekaML(numOfMachines, false);
+                WekaML gmc = new WekaML(numOfMachines, true);
 //                for (int i = 0; i < 3; i++) {
                 for (int w = 0; w < LabSetup.WORKLOAD.length; w++) {
                     ArrayList<Double> optimumConfig = gmc.runWekaML(LabSetup.WORKLOAD[w] * mapSizeMB);
@@ -153,7 +153,7 @@ public class SimGridJava {
 
     public static void main(String[] args) {
         try {
-            new SimGridJava("gmc_test");
+            new SimGridJava("sunuwar");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
