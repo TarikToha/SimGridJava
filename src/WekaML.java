@@ -203,16 +203,17 @@ public class WekaML {
 
         ArrayList<Double> optimumConfig = new ArrayList<>();
 
-        double minEnergy = Double.MAX_VALUE;
+        double minEnergy = Double.MAX_VALUE, maxEnergy = Double.MIN_VALUE;
 
         for (ArrayList<Double> test : testSet) {
             double energy = test.get(4) + test.get(8);
             //double cpu = test.get(4);
             //double ac = test.get(8);
-            double epTP = energy / (test.get(0) / test.get(2));
+            //double epTP = energy / (test.get(0) / test.get(2));
+            double tpeE = (test.get(0) / test.get(2)) / energy;
 
-            if (!total && epTP < minEnergy) {
-                minEnergy = epTP;
+            if (!total && tpeE > maxEnergy) {
+                maxEnergy = tpeE;
                 optimumConfig = test;
             } else if (total && energy < minEnergy) {
                 minEnergy = energy;
