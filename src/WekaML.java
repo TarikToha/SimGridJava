@@ -23,12 +23,12 @@ public class WekaML {
 //    private final String header[] = {"WorkLoad", "NumOfMachines", "ResponseTime", "CPUPower", "CPUEnergy",
 //        "ThresTemp", "EnvTemp", "ACPower", "ACEnergy", "TotalEnergy"};
     private final ArrayList<Double> testSet[];
-    private final boolean total;
+    private final String method;
 
-    public WekaML(int numOfMachines, boolean total) {
+    public WekaML(int numOfMachines, String method) {
         this.numOfMachines = numOfMachines - 1;
         testSet = new ArrayList[this.numOfMachines];
-        this.total = total;
+        this.method = method;
     }
 
     public ArrayList<Double> runWekaML(double workload) throws Exception {
@@ -203,24 +203,30 @@ public class WekaML {
 
         ArrayList<Double> optimumConfig = new ArrayList<>();
 
-        double minEnergy = Double.MAX_VALUE, maxEnergy = Double.MIN_VALUE;
+        double minEnergy = Double.MAX_VALUE, energy;
 
         for (ArrayList<Double> test : testSet) {
-            double energy = test.get(4) + test.get(8);
-            //double cpu = test.get(4);
-            //double ac = test.get(8);
-            //double epTP = energy / (test.get(0) / test.get(2));
-            double tpeE = (test.get(0) / test.get(2)) / energy;
 
-            if (!total && tpeE > maxEnergy) {
-                maxEnergy = tpeE;
-                optimumConfig = test;
-            } else if (total && energy < minEnergy) {
+            energy = test.get(4) + test.get(8);
+            test.add(energy);
+
+            switch (method) {
+                case "cpu":
+                    energy = test.get(4);
+                    break;
+                case "cool":
+                    energy = test.get(8);
+                    break;
+                case "eptp":
+                    energy = test.get(9) / (test.get(0) / test.get(2));
+                    break;
+            }
+
+            if (energy < minEnergy) {
                 minEnergy = energy;
                 optimumConfig = test;
             }
 
-            test.add(energy);
         }
 
         return optimumConfig;
