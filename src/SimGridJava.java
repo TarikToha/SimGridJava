@@ -62,24 +62,29 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_test":
-                WekaML gmc = new WekaML(numOfMachines, false);
-//                for (int i = 0; i < 3; i++) {
-                for (int w = 0; w < LabSetup.WORKLOAD.length; w++) {
-                    ArrayList<Double> optimumConfig = gmc.runWekaML(LabSetup.WORKLOAD[w] * mapSizeMB);
-                    System.out.println((w + 1) + "," + optimumConfig);
+                WekaML gmc = new WekaML(numOfMachines, "eptp");
+                long after = System.currentTimeMillis(),
+                 before;
+                for (int i = 0; i < 3; i++) {
+                    for (int w = 0; w < LabSetup.WORKLOAD.length; w++) {
+                        ArrayList<Double> optimumConfig = gmc.runWekaML(LabSetup.WORKLOAD[w] * mapSizeMB);
+                        System.out.println((w + 1) + "," + optimumConfig);
 
-                    int m = (int) Math.round(optimumConfig.get(1));
-                    editPlatformFile(m);
-                    editDeploymentFile(LabSetup.WORKLOAD[w]);
+                        int m = (int) Math.round(optimumConfig.get(1));
+                        editPlatformFile(m);
+                        editDeploymentFile(LabSetup.WORKLOAD[w]);
 
-                    String output = runSimulator();
-                    System.out.print(arrivalRate + "," + (w + 1) + "," + output);
+                        before = System.currentTimeMillis() - after;
+                        String output = runSimulator();
+                        after = System.currentTimeMillis();
 
-//                        double thresTemp = optimumConfig.get(5);
-//                        double envTemp = optimumConfig.get(6);
-//                        gmc.updateHistory(output, thresTemp, envTemp);
+                        System.out.print(before + "," + (w + 1) + "," + output);
+
+                        double thresTemp = optimumConfig.get(5);
+                        double envTemp = optimumConfig.get(6);
+                        gmc.updateHistory(output, thresTemp, envTemp);
+                    }
                 }
-//                }
                 break;
             default:
                 System.out.println("no suitable method found");
@@ -152,6 +157,7 @@ public class SimGridJava {
     }
 
     public static void main(String[] args) {
+
         try {
             new SimGridJava("gmc_test");
         } catch (Exception ex) {
