@@ -1,7 +1,7 @@
 
 final class LabSetup {
 
-    static final double ARRIVAL_RATE = 469229.950347567;
+    static final double ARRIVAL_RATE = 351705.553466215;
 
     static final double FLOPS[] = {312.5, 530.5, 753.5};
 

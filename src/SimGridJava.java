@@ -159,7 +159,7 @@ public class SimGridJava {
     public static void main(String[] args) {
 
         try {
-            new SimGridJava("gmc_test");
+            new SimGridJava("sunuwar");
         } catch (Exception ex) {
             ex.printStackTrace();
         }
