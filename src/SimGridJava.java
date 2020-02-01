@@ -51,7 +51,7 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_train":
-                int workload[] = {5, 10, 50, 100, 500};
+                int workload[] = {/*5, 10, 50, 100, 500*/47, 94};
                 for (int m = 2; m <= numOfMachines; m++) {
                     editPlatformFile(m);
                     for (int w = 0; w < workload.length; w++) {
@@ -159,7 +159,7 @@ public class SimGridJava {
     public static void main(String[] args) {
 
         try {
-            new SimGridJava("sunuwar");
+            new SimGridJava("gmc_test");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

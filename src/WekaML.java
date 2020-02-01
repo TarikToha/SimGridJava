@@ -218,7 +218,7 @@ public class WekaML {
                     energy = test.get(8);
                     break;
                 case "eptp":
-                    energy = test.get(9) / (test.get(0) / test.get(2));
+                    energy = (0.75 * test.get(4) + 0.25 * test.get(8)) / (test.get(0) / test.get(2));
                     break;
             }
 
