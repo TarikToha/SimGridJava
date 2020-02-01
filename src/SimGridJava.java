@@ -9,7 +9,7 @@ import org.apache.commons.io.IOUtils;
 public class SimGridJava {
 
     private final int mapSizeMB = 128;
-    private final int numOfMachines = 210;
+    private final int numOfMachines = 1200;
     private final String platformLab = "platform_lab.xml";
     private final String deploymentLab = "deployment_lab.xml";
     private final String simulatorPath = new File("").getAbsolutePath() + "/application_lab";
@@ -51,7 +51,7 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_train":
-                int workload[] = {/*5, 10, 50, 100, 500*/47, 94};
+                int workload[] = {/*5, 10, 50, 100, 500*/10000};
                 for (int m = 2; m <= numOfMachines; m++) {
                     editPlatformFile(m);
                     for (int w = 0; w < workload.length; w++) {
@@ -159,7 +159,7 @@ public class SimGridJava {
     public static void main(String[] args) {
 
         try {
-            new SimGridJava("gmc_test");
+            new SimGridJava("gmc_train");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

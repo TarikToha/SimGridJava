@@ -2,8 +2,8 @@
 <!DOCTYPE platform SYSTEM "http://simgrid.gforge.inria.fr/simgrid/simgrid.dtd">
 <platform version="4.1">
 	<actor host="slave0" function="master">
-		<argument value="2"/>
-		<argument value="256e6"/>
+		<argument value="10000"/>
+		<argument value="1280000e6"/>
 		<argument value="125e6"/>
 	</actor>
 </platform>
