@@ -28,7 +28,7 @@ public class SunuwarUNL {
         for (int i = 0; i < numOfGroups; i++) {
             powerCoEff[i] = new ArrayList<>();
             for (int j = 0; j < LabSetup.SERVER_GROUP[i].length; j++) {
-                powerCoEff[i].add(new double[]{LabSetup.ALPHAS[i][j], LabSetup.BETAS[i][j]});
+                powerCoEff[i].add(new double[]{LabSetup1.ALPHAS[i][j], LabSetup1.BETAS[i][j]});
             }
         }
 
@@ -49,7 +49,7 @@ public class SunuwarUNL {
         Double data[]; //speed, flop, alpha, beta
         for (int i = 0; i < numOfGroups; i++) {
             for (int j = 0; j < LabSetup.SERVER_GROUP[i].length; j++) {
-                data = new Double[]{serverUtil.get(i)[j] / 100, LabSetup.FLOPS[i], LabSetup.ALPHAS[i][j], LabSetup.ALPHAS[i][j] + LabSetup.BETAS[i][j]};
+                data = new Double[]{serverUtil.get(i)[j] / 100, LabSetup.FLOPS[i], LabSetup1.ALPHAS[i][j], LabSetup1.ALPHAS[i][j] + LabSetup1.BETAS[i][j]};
                 speeds.put(LabSetup.SERVER_GROUP[i][j], data);
             }
         }

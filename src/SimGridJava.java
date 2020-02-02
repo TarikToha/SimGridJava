@@ -27,7 +27,7 @@ public class SimGridJava {
             Double data[]; //speed, flop, alpha, beta
             for (int i = 0; i < LabSetup.FLOPS.length; i++) {
                 for (int j = 0; j < LabSetup.SERVER_GROUP[i].length; j++) {
-                    data = new Double[]{1.0, LabSetup.FLOPS[i], LabSetup.ALPHAS[i][j], LabSetup.ALPHAS[i][j] + LabSetup.BETAS[i][j]};
+                    data = new Double[]{1.0, LabSetup.FLOPS[i], LabSetup1.ALPHAS[i][j], LabSetup1.ALPHAS[i][j] + LabSetup1.BETAS[i][j]};
                     speeds.put(LabSetup.SERVER_GROUP[i][j], data);
                 }
             }
@@ -51,7 +51,7 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_train":
-                int workload[] = {/*5, 10, 50, 100, 500*/50000};
+                int workload[] = {/*5, 10, 50, 100, 500*/5000};
                 for (int m = 2; m <= numOfMachines; m++) {
                     editPlatformFile(m);
                     for (int w = 0; w < workload.length; w++) {
