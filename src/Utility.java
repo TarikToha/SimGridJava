@@ -9,7 +9,7 @@ public class Utility {
 
     public Utility() {
 
-        for (int i = 0; i < 400; i++) {
+        for (int i = 0; i < 1000; i++) {
             double a = beta[rand.nextInt(beta.length)];//alpha[rand.nextInt(alpha.length)];
             double b = beta[rand.nextInt(beta.length)];
             System.out.println(a + "\t" + b);
