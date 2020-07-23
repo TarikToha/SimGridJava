@@ -51,7 +51,7 @@ public class SimGridJava {
                 }
                 break;
             case "gmc_train":
-                int workload[] = {/*5, 10, 50, 100, 500*/5000};
+                int workload[] = {/*5, 10, 50, 100, 500*/20000};
                 for (int m = 2; m <= numOfMachines; m++) {
                     editPlatformFile(m);
                     for (int w = 0; w < workload.length; w++) {
